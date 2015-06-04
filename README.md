@@ -1,6 +1,8 @@
 # Keyding
 Keyding
 
-just a dummy testrepo
+dummyrepo
 
-<a href='https://coveralls.io/r/nimmneun/Keyding?branch=master'><img src='https://coveralls.io/repos/nimmneun/Keyding/badge.svg?branch=master' alt='Coverage Status' /></a>
+[![Build Status](https://travis-ci.org/nimmneun/Keyding.svg?branch=master)](https://travis-ci.org/nimmneun/Keyding)
+[![Coverage Status](https://coveralls.io/repos/nimmneun/Keyding/badge.svg)](https://coveralls.io/r/nimmneun/Keyding?branch=master)
+
