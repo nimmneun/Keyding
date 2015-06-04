@@ -7,7 +7,7 @@ class KeywordTest extends \PHPUnit_Framework_TestCase
     public function testGetId()
     {
         $keyword = new \Keyding\Keyword;
-	$keyword->setI(123);
+	$keyword->setId(123);
         $this->assertEquals('123', $keyword->getId());
     }
 
