@@ -2,5 +2,10 @@
     "name": "nimmneun/keyding",
     "require": {
         "phpunit/phpunit": "4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Keyding\\": "src/"
+        }
     }
 }
