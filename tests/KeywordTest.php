@@ -13,7 +13,7 @@ class KeywordTest extends \PHPUnit_Framework_TestCase
     public function testGetPhrase()
     {
         $keyword = new \Keyding\Keyword;
-	$keyword->setPhrase('phonky widgets')
+	$keyword->setPhrase('phonky widgets');
         $this->assertEquals('phonky widgets', $keyword->getPhrase());
     }
 }
