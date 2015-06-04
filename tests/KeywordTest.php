@@ -9,4 +9,10 @@ class KeywordTest extends \PHPUnit_Framework_TestCase
         $keyword = new \Keyding\Keyword;
         $this->assertEquals('99', $keyword->getId());
     }
+
+    public function testSetPhrase()
+    {
+        $keyword = new \Keyding\Keyword;
+        $this->assertEquals(\Keyding\Keyword, $keyword->setPhrase('phonky widgets'));
+    }
 }
