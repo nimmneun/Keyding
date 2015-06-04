@@ -16,4 +16,10 @@ class KeywordTest extends \PHPUnit_Framework_TestCase
 	$keyword->setPhrase('phonky widgets');
         $this->assertEquals('phonky widgets', $keyword->getPhrase());
     }
+    public function testGetVolume()
+    {
+        $keyword = new \Keyding\Keyword;
+	$keyword->setVolume(9700);
+        $this->assertEquals(9700, $keyword->getVolume());
+    }
 }
