@@ -1,7 +1,8 @@
 {
     "name": "nimmneun/keyding",
     "require": {
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "4.*",
+        "satooshi/php-coveralls": "dev-master"
     },
     "autoload": {
         "psr-4": {
