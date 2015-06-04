@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
     <phpunit bootstrap="./tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Keydings">
+        <testsuite name="Keyding">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
