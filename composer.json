@@ -1,0 +1,6 @@
+{
+    "name": "nimmneun/keyding",
+    "require": {
+        "phpunit/phpunit": "4.*"
+    },
+}
