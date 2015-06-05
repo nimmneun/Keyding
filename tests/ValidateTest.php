@@ -11,6 +11,14 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(false, $validate->id(-123));
     }
 
+    public function testNum()
+    {
+        $this->assertEquals(true, Validate::num(123.12));
+        $this->assertEquals(true, Validate::num(-123));
+        $this->assertEquals(true, Validate::num('123.123'));
+        $this->assertEquals(false, Validate::num('€123.00'));
+    }
+
     public function testNullableId()
     {
         $validate = new \Keyding\Validate;
@@ -42,4 +50,6 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(true, $validate->dateformat('2015-06-06'));
         $this->assertEquals(false, $validate->dateformat('06-06-2015'));
     }
+
+
 }
