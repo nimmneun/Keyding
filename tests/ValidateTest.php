@@ -28,4 +28,18 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(false, $validate->time('25:14:33'));
         $this->assertEquals(false, $validate->time('22:64:33'));
     }
+
+    public function testTimestamp()
+    {
+        $validate = new \Keyding\Validate;
+        $this->assertEquals(true, $validate->timestamp('2015-05-06 17:15:53'));
+        $this->assertEquals(false, $validate->timestamp('15-06-06 07:05:03'));
+    }
+
+    public function testDateformat()
+    {
+        $validate = new \Keyding\Validate;
+        $this->assertEquals(true, $validate->dateformat('2015-06-06'));
+        $this->assertEquals(false, $validate->dateformat('06-06-2015'));
+    }
 }
