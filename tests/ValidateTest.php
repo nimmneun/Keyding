@@ -57,5 +57,6 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(true, Validate::nullableValue('1231'));
         $this->assertEquals(true, Validate::nullableValue(null));
         $this->assertEquals(false, Validate::nullableValue(''));
+        $this->assertEquals(false, Validate::nullableValue(' '));
     }
 }

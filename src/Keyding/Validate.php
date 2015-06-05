@@ -40,7 +40,7 @@ class Validate
 
     public static function nullableValue($value)
     {
-        return strlen($value) > 0 || is_null($value);
+        return strlen(trim($value)) > 0 || is_null($value);
     }
 }
 
