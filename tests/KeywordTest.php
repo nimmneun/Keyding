@@ -28,7 +28,6 @@ class KeywordTest extends \PHPUnit_Framework_TestCase
     {
         $keyword = new \Keyding\Keyword;
         
-
         $this->assertEquals('lazy widgets',
             $keyword
             ->setId(321)
