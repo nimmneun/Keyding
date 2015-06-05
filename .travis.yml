@@ -10,7 +10,7 @@ before_script:
   - travis_retry composer install --no-interaction
 
 script:
-  - phpunit --coverage-clover tmp/build/clover.xml
+  - phpunit --coverage-text --coverage-clover=coverage.clover  
 
 after_script:
   - php vendor/bin/coveralls -v
