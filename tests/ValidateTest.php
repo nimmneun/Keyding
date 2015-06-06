@@ -7,23 +7,30 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array with testcases =)
      */
-    private $tests = array(
+    private $cases = array(
         'id' => array(
-            123    => true,
+            '123'  => true,
             '1.23' => false,
-            0      => false,
+            '0'    => false,
             'lol'  => false,
+            '1 2'  => false,
+        )
+        'num' => array(
+            '123'  => true,
+            '1.23' => true,
+            '0'    => true,
+            '123€' => false,
             '1 2'  => false,
         )
     );
 
-    private function processTests($test)
+    private function processTests($test, $type = 'assertEquals')
     {
         $validate = new \Keyding\Validate;
 
-        foreach ($this->tests[$test] as $input => $assert)
+        foreach ($this->cases[$test] as $input => $assert)
         {
-            $this->assertEquals($assert, $validate->$test($input));
+            $this->$type($assert, $validate->$test($input));
         }
     }
 
@@ -34,10 +41,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
 
     public function testNum()
     {
-        $this->assertEquals(true, Validate::num(123.12));
-        $this->assertEquals(true, Validate::num(-123));
-        $this->assertEquals(true, Validate::num('123.123'));
-        $this->assertEquals(false, Validate::num('€123.00'));
+        $this->processTests('num');
     }
 
     public function testTime()
