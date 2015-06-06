@@ -4,11 +4,29 @@ namespace Keyding;
 
 class ValidateTest extends \PHPUnit_Framework_TestCase
 {
-    public function testId()
+    private $tests = array(
+        'id' => array(
+            123   => true
+            1.23  => false
+            0     => false
+            'lol' => false
+            '1 2' => false
+        )
+    );
+
+    private function processTests($test)
     {
         $validate = new \Keyding\Validate;
-        $this->assertEquals(true, $validate->id(123));
-        $this->assertEquals(false, $validate->id(-123));
+
+        foreach ($this->tests[$test] as $input => $assert)
+        {
+            $this->assertEquals($assert, $validate->$test($input));
+        }
+    }
+
+    public function testId()
+    {
+        $this->processTests('id');
     }
 
     public function testNum()
