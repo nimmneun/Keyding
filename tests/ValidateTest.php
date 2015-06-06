@@ -4,13 +4,16 @@ namespace Keyding;
 
 class ValidateTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var array with testcases =)
+     */
     private $tests = array(
         'id' => array(
-            123   => true,
-            1.23  => false,
-            0     => false,
-            'lol' => false,
-            '1 2' => false,
+            123    => true,
+            '1.23' => false,
+            0      => false,
+            'lol'  => false,
+            '1 2'  => false,
         )
     );
 
