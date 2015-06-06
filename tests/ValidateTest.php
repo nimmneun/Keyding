@@ -21,6 +21,15 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
             '0'    => true,
             '123€' => false,
             '1 2'  => false,
+        ),
+        'time' => array(
+            '05:11:33' => true,
+            '16:04:22' => true,
+            '5:3:44'   => true,
+            '24:23:42' => false,
+            '09:61:33' => false,
+            '05:17:99' => false,
+            '33:33:33' => false,
         )
     );
 
@@ -46,11 +55,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
 
     public function testTime()
     {
-        $validate = new \Keyding\Validate;
-        $this->assertEquals(true, $validate->time('17:15:53'));
-        $this->assertEquals(true, $validate->time('7:5:03'));
-        $this->assertEquals(false, $validate->time('25:14:33'));
-        $this->assertEquals(false, $validate->time('22:64:33'));
+        $this->processTests('time');
     }
 
     public function testDateformat()
