@@ -33,11 +33,39 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         ),
         'date' => array(
             '2015-06-06' => true,
+            '2015/06/06' => true,
+            '2015/06-06' => true,
+            '2015-06/06' => true,
             '20150606'   => true,
-            '2015-33-06' => false,
-            '2015-00-21' => false,
-            '20150633'   => false,
-            '20150600'   => false,
+            '20-06-06'   => true,
+            '20/06/06'   => true,
+            '20/06-06'   => true,
+            '20-06/06'   => true,
+            '200606'     => true,
+            '2015-00-06' => false,
+            '2015-06-32' => false,
+            '2015-13-06' => false,
+            '0000-06-06' => false,
+            '20/16/06'   => false,
+            '201606'     => false,
+        ),
+        'timestamp' => array(
+            '2015-05-06 17:15:53' => true,
+        ),
+        'nullableId' => array(
+            '123'  => true,
+            'null' => true,
+            '0'    => false,
+            ''     => false,
+            ' '    => false,
+        ),
+        'nullableValue' => array(
+            'abc'   => true,
+            '1.23'  => true,
+            'null'  => true,
+            '0'     => true,
+            ''      => false,
+            ' '     => false,
         )
     );
 
@@ -47,6 +75,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
 
         foreach ($this->cases[$test] as $input => $assert)
         {
+            $input = $input === 'null' ? null : $input;
             $this->$type($assert, $validate->$test($input));
         }
     }
@@ -73,26 +102,16 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
 
     public function testTimestamp()
     {
-        $validate = new \Keyding\Validate;
-        $this->assertEquals(true, $validate->timestamp('2015-05-06 17:15:53'));
-        $this->assertEquals(false, $validate->timestamp('15-06-06 07:05:03'));
+        $this->processTests('timestamp');
     }
 
     public function testNullableId()
     {
-        $validate = new \Keyding\Validate;
-        $this->assertEquals(true, $validate->nullableId(123));
-        $this->assertEquals(true, $validate->nullableId(null));
-        $this->assertEquals(false, $validate->nullableId(0));
-        $this->assertEquals(false, $validate->nullableId(-123));
+        $this->processTests('nullableId');
     }
 
     public function testNullableValue()
     {
-        $this->assertEquals(true, Validate::nullableValue(123));
-        $this->assertEquals(true, Validate::nullableValue('1231'));
-        $this->assertEquals(true, Validate::nullableValue(null));
-        $this->assertEquals(false, Validate::nullableValue(''));
-        $this->assertEquals(false, Validate::nullableValue(' '));
+        $this->processTests('nullableValue');
     }
 }
