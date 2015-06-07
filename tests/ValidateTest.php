@@ -49,6 +49,24 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
             '20/16/06'   => false,
             '201606'     => false,
         ),
+        'dateSimple' => array(
+            '2015-06-06' => true,
+            '2015/06/06' => true,
+            '2015/06-06' => true,
+            '2015-06/06' => true,
+            '20150606'   => false,
+            '20-06-06'   => true,
+            '20/06/06'   => true,
+            '20/06-06'   => true,
+            '20-06/06'   => true,
+            '200606'     => false,
+            '2015-00-06' => true,
+            '2015-06-32' => true,
+            '2015-13-06' => true,
+            '0000-06-06' => true,
+            '20/16/06'   => true,
+            '201606'     => false,
+        ),
         'timestamp' => array(
             '2015-05-06 17:15:53' => true,
         ),
@@ -98,6 +116,11 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
     public function testDate()
     {
         $this->processTests('date');
+    }
+
+    public function testDateSimple()
+    {
+        $this->processTests('dateSimple');
     }
 
     public function testTimestamp()

@@ -30,13 +30,13 @@ class Validate
         $day = '[0][1-9]|[1][0-9]|[2][0-9]|[3][0-1]';
         $sep = '[\/|\-]?';
 
-        return preg_match('/^('.$year.')('.$sep.')('.$month.')('.$sep.')('.$day.')$/', $value, $m)
-            && (count(array_filter($m)) === 4 || count(array_filter($m)) === 6) ? true : false;
+        return 1 === preg_match('/^('.$year.')('.$sep.')('.$month.')('.$sep.')('.$day.')$/', $value, $m)
+            && (count(array_filter($m)) === 4 || count(array_filter($m)) === 6);
     }
 
     public static function dateSimple($value)
     {
-        return preg_match('/^([0-9][0-9]){2,4}\-([0-9]{2}\-([0-9]{2})$/', $value, $m);
+        return 1 === preg_match('/^(\d\d){1,2}([\/\-][\d]{2}){2}$/', $value, $m);
     }
 
         public static function timestamp($value)
