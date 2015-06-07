@@ -30,6 +30,14 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
             '09:61:33' => false,
             '05:17:99' => false,
             '33:33:33' => false,
+        ),
+        'date' => array(
+            '2015-06-06' => true,
+            '20150606'   => true,
+            '2015-33-06' => false,
+            '2015-00-21' => false,
+            '20150633'   => false,
+            '20150600'   => false,
         )
     );
 
@@ -58,11 +66,9 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         $this->processTests('time');
     }
 
-    public function testDateformat()
+    public function testDate()
     {
-        $validate = new \Keyding\Validate;
-        $this->assertEquals(true, $validate->dateformat('2015-06-06'));
-        $this->assertEquals(false, $validate->dateformat('06-06-2015'));
+        $this->processTests('date');
     }
 
     public function testTimestamp()

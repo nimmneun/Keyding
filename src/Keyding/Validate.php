@@ -23,9 +23,9 @@ class Validate
         return 1 === preg_match('/^([0-9]|[0-1][0-9]|[2][0-3])(:([0-9]|[0-5][0-9])){2}$/' , $value, $m);
     }
 
-    public static function dateformat($value)
+    public static function date($value)
     {
-        return 1 === preg_match('/^(\d){4}(-(\d){2}){2}$/', $value, $m);
+        return 1 === preg_match('/^([0-9]{4})[-]?([0][1-9]|[1][0-2])[-]?[0]([1-9]|[1][0-9]|[2][0-9]|[3][0-1])$/', $value, $m);
     }
 
     public static function timestamp($value)
