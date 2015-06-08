@@ -4,8 +4,6 @@ namespace Keyding;
 
 class Config
 {
-    private static $instance;
-
     private $data = array(
         'db' => array(
             'neunbox' => array(
@@ -37,20 +35,14 @@ class Config
         return $data;
     }
 
-//    /**
-//     * @param array $args
-//     */
 //    public function set($args)
 //    {
 //        // todo: add configs at runtime?
 //    }
 
-    public static function getInstance()
+    public static function getConfig($var, $default = null)
     {
-        if (null === self::$instance)
-        {
-            self::$instance = new self;
-        }
-        return self::$instance;
+        $config = new self;
+        return $config->get($var, $default);
     }
 }

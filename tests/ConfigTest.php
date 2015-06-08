@@ -11,4 +11,10 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('', $config->get('db.neunbox.pass'));
         $this->assertEquals('defaultblubb', $config->get('non.existant.value', 'defaultblubb'));
     }
+
+    public function testGetConfig()
+    {
+        $this->assertEquals('root', \Keyding\Config::getConfig('db.neunbox.user'));
+    }
+
 }
