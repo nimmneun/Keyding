@@ -1,8 +1,7 @@
 <?php 
-/**
- * @author nimmneun
- * @since 02.06.2015 00:26
- */
+
+namespace Keyding;
+
 class Config
 {
     private static $instance;
