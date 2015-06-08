@@ -10,22 +10,6 @@ class Config
     private $data = array(
         'db' => array(
             'neunbox' => array(
-                'host' => 'localhost',
-                'name' => 'local',
-                'user' => 'root',
-                'pass' => '',
-                'dsn'  => 'mysql:dbname=local;host=localhost'
-            ),
-            'cubie' => array(
-                'host' => '192.168.0.200',
-                'name' => 'keydings',
-                'user' => 'root',
-                'pass' => '',
-                'dsn'  => 'mysql:dbname=local;host=localhost'
-            ),
-            'devbox' => array(
-                'host' => '192.168.0.201',
-                'name' => 'keydings',
                 'user' => 'root',
                 'pass' => '',
                 'dsn'  => 'mysql:dbname=local;host=localhost'
@@ -54,13 +38,13 @@ class Config
         return $data;
     }
 
-    /**
-     * @param array $args
-     */
-    public function set($args)
-    {
-        // todo: add configs during runtime?
-    }
+//    /**
+//     * @param array $args
+//     */
+//    public function set($args)
+//    {
+//        // todo: add configs at runtime?
+//    }
 
     public static function getInstance()
     {
