@@ -48,6 +48,10 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         ),
         'timestamp' => array(
             '2015-05-06 17:15:53' => true,
+            '20150506171553'      => true,
+            '201505061715'        => true,
+            '2015050617'          => true,
+            '20150506'            => true,
         ),
         'nullableId' => array(
             '123'  => true,

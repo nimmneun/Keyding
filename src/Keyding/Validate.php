@@ -32,7 +32,12 @@ class Validate
 
     public static function timestamp($value)
     {
-        return self::temporal($value, 'Y-m-d H:i:s');
+        return self::temporal($value, 'Y-m-d H:i:s')
+            || self::temporal($value, 'YmdHis')
+            || self::temporal($value, 'YmdHi')
+            || self::temporal($value, 'YmdH')
+            || self::temporal($value, 'Ymd')
+        ;
     }
 
     public static function temporal($value, $format)
