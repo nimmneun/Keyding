@@ -25,7 +25,7 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         'time' => array(
             '05:11:33' => true,
             '16:04:22' => true,
-            '5:3:44'   => true,
+            '5:3:44'   => false,
             '24:23:42' => false,
             '09:61:33' => false,
             '05:17:99' => false,
@@ -34,37 +34,16 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
         'date' => array(
             '2015-06-06' => true,
             '2015/06/06' => true,
-            '2015/06-06' => true,
-            '2015-06/06' => true,
             '20150606'   => true,
             '20-06-06'   => true,
             '20/06/06'   => true,
-            '20/06-06'   => true,
-            '20-06/06'   => true,
             '200606'     => true,
+            '2015/06-06' => false,
+            '20-06/06'   => false,
             '2015-00-06' => false,
             '2015-06-32' => false,
-            '2015-13-06' => false,
-            '0000-06-06' => false,
+            '2015-02-30' => false,
             '20/16/06'   => false,
-            '201606'     => false,
-        ),
-        'dateSimple' => array(
-            '2015-06-06' => true,
-            '2015/06/06' => true,
-            '2015/06-06' => true,
-            '2015-06/06' => true,
-            '20150606'   => false,
-            '20-06-06'   => true,
-            '20/06/06'   => true,
-            '20/06-06'   => true,
-            '20-06/06'   => true,
-            '200606'     => false,
-            '2015-00-06' => true,
-            '2015-06-32' => true,
-            '2015-13-06' => true,
-            '0000-06-06' => true,
-            '20/16/06'   => true,
             '201606'     => false,
         ),
         'timestamp' => array(
@@ -116,11 +95,6 @@ class ValidateTest extends \PHPUnit_Framework_TestCase
     public function testDate()
     {
         $this->processTests('date');
-    }
-
-    public function testDateSimple()
-    {
-        $this->processTests('dateSimple');
     }
 
     public function testTimestamp()
