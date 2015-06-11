@@ -8,5 +8,7 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     {
         $container = new \Keyding\Container;
         $this->assertInstanceOf('Keyding\Keyword', $container->get('Keyding\Keyword'));
+        // from cache
+        $this->assertInstanceOf('Keyding\Keyword', $container->get('Keyding\Keyword'));
     }
 }
